@@ -1,39 +1,50 @@
-# bots
-Bots automarizados criados em Python
+É um excelente resumo sobre o projeto de automação que você desenvolveu em Python para envio de mensagens via WhatsApp Web! A descrição é clara e aborda os pontos chave de funcionalidade, pré-requisitos, personalização e tratamento de erros.
 
-Bot criado para estudos utlizando bibliotecas voltadas para automação de processos com python.
+Para torná-lo ainda mais profissional e útil para quem for ler (ou usar/colaborar), você pode formatar o texto em um estilo mais comum para documentação de código/projetos, como um README.md.
 
-A ideia desse algoritmo é permitir ao usuario realizar disparos de mensagens via whatsapp WEB automaticamente a partir de uma planilha de excel contendo as informações que o usuario designar.
+Aqui está uma sugestão de como estruturar e refinar o seu texto, mantendo toda a informação original:
 
-<h1>Precauções com o código</h1>
-O codigo em questão foi construido em partes bem definidas, sendo elas:
-<ul>
-    <ol>Importação das bibliotecas necessárias</ol>
-    <ol>Abertura do navegador padrão</ol>
-    <ol>Abertura de um Whatsapp web já previamente estabelicido, ou seja o usuario deve fazer o prim<br>
-    login manualmente</ol>
-    <ol>Após isso o algoritimo irá buscar e carregar o arquivo excel chamado book4.xlsx no diretório<br>
-    Este ponto o usuario poderá criar um arquivo com este nome ou poderá alterar o nome<br>
-    do arquivo que será localizado, bem como o diretório diretamente no código</ol>
-    <ol>Após localizar o arquivo e a sheet correta designada dentro do das linhas superiores, o<br>
-    o algoritmo irá começar a ler as linhas e realizar as iterações de envios de mensagens,<br>
-    importe ressaltar que neste ponto o código já possui os nomes das colunas pré estabelecidas que pode
-    ser alteradas pelo usuario de acordo com a sua necessidade ou contexto, incluidon ou removendo<br>
-    colunas da planilha e alterando a mensagem padrão.</ol>
-</ul>
-Portanto se faz necessário atenção com as alterações, evitando alterar o código do algoritmo, reservando-se apenas a alterar as informações customizaveis, como texto padrão que será enviado, numero e ordem das colunas
-que irão aparecer na mensagem padrão
+***
 
-Também é importe que durante a execução do algoritmo a maquina esteja desocupada e que não seja feito nenhum tipo de uso secundario
+# 🤖 Bots de Automação em Python
 
-Ao término da execução do algoritmo será gerado um arquivo .CSV indicando os contatos que não receberam a mensagem, sem distinguir o motivo, função essa que também poderá ser alterada pelo usuario caso o mesmo tenha
-capacidade logica para realizar alterações no código sem comprometer a estrutura padrão.
+## 🎯 Objetivo do Projeto
+Este projeto consiste em um bot automatizado desenvolvido em Python para **disparo massivo de mensagens via WhatsApp Web**, utilizando dados de contato e conteúdo extraídos de uma planilha Excel. O algoritmo é ideal para estudos em automação de processos e comunicação.
 
-<h3>Tratamentos de erros</h3>
-O algoritmo funcionará com duas tentativas de envio para cada contato a partir do momento que o link personalizado abra corretamente, sendo elas:
+## ✨ Funcionalidades Principais
+* Abertura e controle do navegador (Chrome/Edge).
+* Carregamento de dados de contatos e variáveis a partir de um arquivo `book4.xlsx`.
+* Iteração sobre as linhas do Excel para personalizar e enviar mensagens.
+* Múltiplas tentativas de envio (referência visual via `pyautogui` e `hotkeys`).
+* Geração de um relatório `.CSV` com os contatos que não receberam a mensagem.
 
-Envio por referencia de botão, dentro do diretorio há um arquivo .png com o icone de envio, a qual o biblioteca <b>pyautogui</b> tentará localizar para simular um click de mouse no botão a partir da referencia visual.
-Após isso será feita a verificação do envio do botão, caso retorne como negativo então o algoritmo tentará executar a segunda forma, que é através do uso de hotkeys, onde o algoritmo irá simular o toque nas teclas Tab e na sequencia enter.
-Para ambos os casos o algoritmo irá fechar a aba principal simulando a hotkey CTRL+W para então abrir uma nova e dar seguimento nas iterações.
+## ⚠️ Pré-Requisitos e Precauções
+Para a execução correta do algoritmo, o usuário deve:
 
-Ao termino da execução de todas as iterações será gerado o arquivo .CSV como relatório de erros.
+1.  **Bibliotecas:** Certificar-se de que todas as bibliotecas necessárias (como `selenium`, `pandas`, `pyautogui`, etc.) estão instaladas.
+2.  **Login no WhatsApp Web:** O primeiro login na sessão do WhatsApp Web deve ser feito **manualmente** pelo usuário antes da execução do script, garantindo que a sessão esteja ativa.
+3.  **Planilha de Dados:** O arquivo de dados deve ser nomeado como `book4.xlsx` e estar no diretório especificado, contendo as colunas com as informações (número de telefone, variáveis personalizadas, etc.).
+4.  **Máquina Desocupada:** Durante a execução, a máquina deve estar **desocupada** e sem uso secundário, pois o algoritmo simula interações de mouse e teclado que podem ser interrompidas por interferência do usuário.
+
+## 🛠️ Pontos de Customização
+O código foi estruturado para permitir personalizações sem a necessidade de alterar a lógica central do algoritmo. Os pontos customizáveis são:
+
+| Elemento | Descrição | Onde Alterar |
+| :--- | :--- | :--- |
+| **Arquivo Excel** | Nome e diretório do arquivo de entrada de dados. | Linhas de carregamento do arquivo. |
+| **Colunas** | Nomes das colunas da planilha (`Sheet`) que serão lidas. | Variáveis de leitura do Pandas. |
+| **Mensagem Padrão** | O texto base da mensagem a ser enviada. | Variável de definição da mensagem. |
+| **Relatório de Erros** | Nome do arquivo `.CSV` de saída. | Linhas finais do algoritmo. |
+
+> 📌 **Importante:** Altere apenas as informações customizáveis (textos, nomes de colunas, nomes de arquivos), evitando modificar a estrutura de comandos do algoritmo.
+
+## 🛡️ Tratamento de Erros e Tentativas de Envio
+O algoritmo foi projetado com robustez para lidar com falhas no processo de envio, utilizando um sistema de **duas tentativas** para cada contato, após a correta abertura do link personalizado:
+
+1.  **Tentativa 1 (Referência Visual):** A biblioteca `pyautogui` tentará localizar a imagem do ícone de envio (`.png` no diretório) para simular um clique de mouse no botão.
+2.  **Tentativa 2 (Hotkeys):** Se a primeira tentativa falhar, o algoritmo simulará o uso de atalhos de teclado (pressionar `Tab` e, em seguida, `Enter`).
+
+Em ambos os casos de envio (sucesso ou falha), o algoritmo fechará a aba atual (simulando `CTRL+W`) e abrirá uma nova para seguir com a próxima iteração.
+
+### Relatório Final
+Ao término de todas as iterações, será gerado um arquivo `.CSV` indicando os contatos que não receberam a mensagem, sem distinguir o motivo da falha. Esta funcionalidade também é customizável, caso o usuário tenha a capacidade de realizar alterações lógicas.
