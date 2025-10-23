@@ -1,11 +1,3 @@
-É um excelente resumo sobre o projeto de automação que você desenvolveu em Python para envio de mensagens via WhatsApp Web! A descrição é clara e aborda os pontos chave de funcionalidade, pré-requisitos, personalização e tratamento de erros.
-
-Para torná-lo ainda mais profissional e útil para quem for ler (ou usar/colaborar), você pode formatar o texto em um estilo mais comum para documentação de código/projetos, como um README.md.
-
-Aqui está uma sugestão de como estruturar e refinar o seu texto, mantendo toda a informação original:
-
-***
-
 # 🤖 Bots de Automação em Python
 
 ## 🎯 Objetivo do Projeto
